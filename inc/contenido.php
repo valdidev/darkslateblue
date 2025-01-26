@@ -25,6 +25,7 @@ while ($fila = $resultado->fetch_assoc()) {		// Para cada resultado obtenido
 				$explotado = explode("_", $clave);
 				$tabla = $explotado[0];
 				$columna = $explotado[1];
+						// Si el campo tiene un guion bajo
 				////////////// SUBCONSULTA ///////////
 				$peticion2 = "
 	  				sELECT " . $columna . " 
