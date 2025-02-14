@@ -5,7 +5,7 @@
 	Este archivo genera elementos de lista que tienen un hipervinculo	
 */
 
-include "../config/config.php";
+include __DIR__ . "/../config/config.php";
 
 $peticion = "SHOW TABLES in " . $bd;
 //echo $peticion;
