@@ -5,19 +5,18 @@
 	Este archivo genera elementos de lista que tienen un hipervinculo	
 */
 
-//include "utilidades/error.php";                           // Incluyo los mensajes de error
-include "config/config.php";                          // Traigo la conexión a la base de datos
+include "config/config.php";
 
-$peticion = "SHOW TABLES in " . $bd;			// Quiero todas las tablas de la base de datos
+$peticion = "SHOW TABLES in " . $bd;
 //echo $peticion;
-$resultado = $conexion->query($peticion);				// Ejecuto la petición contra la base de datos
+$resultado = $conexion->query($peticion);
 
-while ($fila = $resultado->fetch_assoc()) {			// Para cada uno de los resultados
+while ($fila = $resultado->fetch_assoc()) {
 	echo "
 		<li>
 			<a href='?tabla=" . $fila['Tables_in_' . $bd] . "'>
 				" . $fila['Tables_in_' . $bd] . "
 			</a>
 		</li>
-	";																// Pongo un elemento nuevo del menu
+	";
 }
