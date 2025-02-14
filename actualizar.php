@@ -6,16 +6,12 @@ El presente archivo procesa la acción de actualización enviada desde el escrit
 */
 
 
-include "config/config.php";                          // Traigo la conexión a la base de datos
+include "config/config.php";                          
 
 $peticion = "
-	UPDATE ".$_GET['tabla']."
-	SET ".$_GET['columna']." = '".$_GET['contenido']."'
-	WHERE Identificador = ".$_GET['identificador']."
-"; 
+	uPDATE " . $_GET['tabla'] . "
+	sET " . $_GET['columna'] . " = '" . $_GET['contenido'] . "'
+	wHERE Identificador = " . $_GET['identificador'] . "
+";
 
 $resultado = $conexion->query($peticion);
-
-?>
-
-

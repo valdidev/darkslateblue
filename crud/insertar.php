@@ -13,7 +13,6 @@ iNSERT INTO
 " . $_GET['tabla'] . " 
 VALUES(";
 
-// Recorre las claves de `$_POST` y maneja los valores
 foreach (array_keys($_POST) as $clave) {
     if ($clave == "Identificador") {
         $peticion .= "NULL,";
@@ -22,7 +21,6 @@ foreach (array_keys($_POST) as $clave) {
     }
 }
 
-// Recorre las claves de `$_FILES` para manejar archivos
 foreach ($_FILES as $clave => $archivo) {
     var_dump($archivo);
     if ($archivo['error'] !== UPLOAD_ERR_OK) {
@@ -30,10 +28,9 @@ foreach ($_FILES as $clave => $archivo) {
         continue;
     }
 
-    // Procesa el archivo y guárdalo en la carpeta "static"
     $uploadDir = "../../static/";
     if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0755, true); // Crea la carpeta si no existe
+        mkdir($uploadDir, 0755, true);
     }
 
     $fileTmpName = $archivo['tmp_name'];
@@ -41,19 +38,16 @@ foreach ($_FILES as $clave => $archivo) {
     $targetPath = $uploadDir . $fileName;
 
     if (move_uploaded_file($fileTmpName, $targetPath)) {
-        // Guarda solo el nombre del archivo en la base de datos
         $peticion .= "'" . $conexion->real_escape_string($fileName) . "',";
     } else {
         echo "Error al mover el archivo al directorio de destino.";
     }
 }
 
-// Elimina la última coma
 $peticion = substr($peticion, 0, -1);
 $peticion .= ")";
 
-// Ejecuta la consulta
-echo "Consulta SQL: " . $peticion . "<br>"; // Para depuración
+echo "Consulta SQL: " . $peticion . "<br>";
 $resultado = $conexion->query($peticion);
 
 if (!$resultado) {
