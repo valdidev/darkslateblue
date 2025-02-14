@@ -15,7 +15,7 @@ Archivo principal de la aplicación que consiste en el escritorio a partir del c
 	<head>
 		<title>valdidev | DarkSlateBlue</title>
 		<link rel="Stylesheet" href="estilo/escritorio.css">
-		<link rel="icon" href="logo.svg" type="image/svg+xml">
+		<link rel="icon" href="logo.png" type="image/svg+xml">
 	</head>
 	<body>
 		<header>

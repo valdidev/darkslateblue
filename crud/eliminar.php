@@ -2,8 +2,8 @@
 
 // Este archivo inserta los campos que vienen del formulario
 
-include "../utilidades/error.php";                           // Incluyo los mensajes de error
-include "../config/config.php";                          // Traigo la conexión a la base de datos
+include "../utilidades/error.php";
+include "../config/config.php";
 
 $peticion = "
 	dELETE FROM " . $_GET['tabla'] . "
