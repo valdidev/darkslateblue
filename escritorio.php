@@ -20,7 +20,7 @@ Archivo principal de la aplicación que consiste en el escritorio a partir del c
 	<body>
 		<header>
 			<h1>
-				<img src="logo.svg" id="logo">
+				<img src="logo.png" id="logo">
 				valdidev | DarkSlateBlue
 			</h1>
 			<div id="cerrarsesion">
