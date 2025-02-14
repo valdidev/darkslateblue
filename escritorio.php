@@ -13,7 +13,7 @@ Archivo principal de la aplicación que consiste en el escritorio a partir del c
 <!doctype html>
 <html>
 	<head>
-		<title>valdidev | DarkSlateBlue</title>
+		<title>muffinteca (admin)</title>
 		<link rel="Stylesheet" href="estilo/escritorio.css">
 		<link rel="icon" href="logo.png" type="image/svg+xml">
 	</head>
@@ -21,7 +21,7 @@ Archivo principal de la aplicación que consiste en el escritorio a partir del c
 		<header>
 			<h1>
 				<img src="logo.png" id="logo">
-				valdidev | DarkSlateBlue
+				Muffinteca administrador
 			</h1>
 			<div id="cerrarsesion">
 				<a href="logout.php">⏻</a>
