@@ -51,4 +51,4 @@ if (!$resultado) {
 }
 
 ?>
-<meta http-equiv="refresh" content="5; url=../escritorio.php">
+<meta http-equiv="refresh" content="0.5; url=../escritorio.php">

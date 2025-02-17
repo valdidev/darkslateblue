@@ -1,12 +1,16 @@
 <?php
 
 /*
-El presente archivo procesa la acción de actualización enviada desde el escritorio de la aplicación de administración este archivo se llama mediante peticiones AJAX y se le envía por una parte la tabla por otra parte la columna y por otra parte el contenido junto con el identificador el archivo coge esos cuatro datos y construye una petición de tipo Update para ejecutar contra la base de datos 
-
+	Este script procesa la acción de actualización enviada desde el escritorio.
+	Se invoca mediante peticiones AJAX y recibe cuatro parámetros principales: 
+	- La tabla en la que se realizará la actualización.
+	- La columna que se modificará.
+	- El nuevo contenido que se asignará a la columna.
+	- El identificador que determina el registro específico a actualizar.
+	Con estos datos, el script construye y ejecuta una consulta SQL de tipo uPDATE en la base de datos.
 */
 
-
-include "config/config.php";                          
+include "config/config.php";
 
 $peticion = "
 	uPDATE " . $_GET['tabla'] . "
