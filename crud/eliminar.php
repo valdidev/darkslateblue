@@ -7,7 +7,7 @@ include "../config/config.php";
 
 $peticion = "
 	dELETE FROM " . $_GET['tabla'] . "
-	HERE Identificador = " . $_GET['Identificador'] . "
+	WHERE Identificador = " . $_GET['Identificador'] . "
 ";
 
 $resultado = $conexion->query($peticion);

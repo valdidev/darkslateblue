@@ -1,12 +1,11 @@
 <?php
 
-// Este archivo inserta los campos que vienen del formulario
 var_dump($_POST);
 echo "<br>";
 var_dump($_FILES);
 echo "<br>";
-include "../utilidades/error.php";                           // Incluyo los mensajes de error
-include "../config/config.php";                          // Traigo la conexión a la base de datos
+include "../utilidades/error.php";
+include "../config/config.php";
 
 $peticion = "
 iNSERT INTO 
