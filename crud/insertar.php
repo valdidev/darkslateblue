@@ -1,9 +1,5 @@
 <?php
 
-var_dump($_POST);
-echo "<br>";
-var_dump($_FILES);
-echo "<br>";
 include "../utilidades/error.php";
 include "../config/config.php";
 
@@ -21,7 +17,6 @@ foreach (array_keys($_POST) as $clave) {
 }
 
 foreach ($_FILES as $clave => $archivo) {
-    var_dump($archivo);
     if ($archivo['error'] !== UPLOAD_ERR_OK) {
         echo "Error en la subida del archivo. Código de error: " . $archivo['error'];
         continue;
