@@ -5,11 +5,9 @@
 		}
 	</style>
 	<?php
-	// Load and decode JSON data
-	$jsonData = file_get_contents('../basededatos/pedidos/' . $_GET['documento']); // Ensure your JSON file is named 'data.json' and placed in the same directory
+	$jsonData = file_get_contents('../basededatos/pedidos/' . $_GET['documento']);
 	$data = json_decode($jsonData, true);
 
-	// Extract data
 	$cliente = $data['cliente'];
 	$pedido = $data['pedido'];
 	$productos = $data['productos'];
