@@ -1,32 +1,29 @@
 <?php
 
-// Este archivo carga el contenido interno de la tabla
+// Este archivo carga el contenido interno de cada tabla
 
-//include "utilidades/error.php";                           // Incluyo los mensajes de error
-include "config/config.php";                          // Traigo la conexión a la base de datos
+include "config/config.php";
 
 $peticion = "
 	sELECT * 
 	FROM " . $_GET['tabla'] . " 
 	LIMIT 10  
 	offsET " . ($_SESSION['pagina'] * 10) . " 
-	";															// Selecciono todo de una tabla dinámica
-$resultado = $conexion->query($peticion);			// Ejecuto la petición contra la base de datos
+	";
+$resultado = $conexion->query($peticion);
 
-while ($fila = $resultado->fetch_assoc()) {		// Para cada resultado obtenido
-	$identificador = "";									// Creo una variable llamada identificador
-	echo "<tr>";											// Comienzo una fila de tabla
-	foreach ($fila as $clave => $valor) {				// Para cada uno de los campos
-		if ($clave == "Identificador") {				// Si la clave es Identificador
-			$identificador = $valor;					// A la variable identificador le pongo valor
+while ($fila = $resultado->fetch_assoc()) {
+	$identificador = "";
+	echo "<tr>";
+	foreach ($fila as $clave => $valor) {
+		if ($clave == "Identificador") {
+			$identificador = $valor;
 		}
-		if (!str_contains($clave, "imagen")) {						// Si el campo es menor que 300 caracteres
+		if (!str_contains($clave, "imagen")) {
 			if (str_contains($clave, "_")) {
 				$explotado = explode("_", $clave);
 				$tabla = $explotado[0];
 				$columna = $explotado[1];
-						// Si el campo tiene un guion bajo
-				////////////// SUBCONSULTA ///////////
 				$peticion2 = "
 	  				sELECT " . $columna . " 
 	  				FROM " . $tabla . " 
@@ -35,17 +32,14 @@ while ($fila = $resultado->fetch_assoc()) {		// Para cada resultado obtenido
 				while ($fila2 = $resultado2->fetch_assoc()) {
 					echo "<td>" . $fila2[$columna] . "</td>";
 				}
-				////////////// SUBCONSULTA ///////////
-
-
 			} else {
 				echo "<td
 	  				tabla='" . $_GET['tabla'] . "'
 	  				columna = '" . $clave . "'
 	  				identificador = '" . $identificador . "'
-	  			>" . $valor . "</td>";				// Pongo el valor en una columna
+	  			>" . $valor . "</td>";
 			}
-		} else {												// En caso contrario
+		} else {
 			if ($valor == "") {
 				echo "<td>
   			<img src='./img/placeholder.jpg'>
@@ -53,7 +47,7 @@ while ($fila = $resultado->fetch_assoc()) {		// Para cada resultado obtenido
 			} else {
 				echo "<td>
   			<img src='../static/" . $valor . "'>
-  			</td>";											// Cargo los datos como imagen y no como texto
+  			</td>";
 			}
 		}
 	}
@@ -64,10 +58,9 @@ while ($fila = $resultado->fetch_assoc()) {		// Para cada resultado obtenido
 				X
 			</button>
 		</a>
-	</td>";													// Creo un boton de eliminar con los datos correcto
-	echo "</tr>";											// Cierro la fila html
+	</td>";
+	echo "</tr>";
 }
 
 
-$conexion->close();										// Cierro la conexión de base de datos
-?>
+$conexion->close();
