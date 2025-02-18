@@ -10,15 +10,11 @@
 			<?php
 			$folder = '../basededatos/' . $_GET['carpeta'] . "/";
 
-			// Check if the folder exists
 			if (is_dir($folder)) {
-				// Get all files and directories inside the folder
 				$files = scandir($folder);
 
-				// Filter out `.` and `..`
 				$files = array_diff($files, array('.', '..'));
 
-				// Print each file name
 				foreach ($files as $file) {
 					echo "
 						  	<tr>
