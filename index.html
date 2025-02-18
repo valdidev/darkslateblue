@@ -4,12 +4,13 @@ este archivo consta de un formulario que lleva al archivo login.php donde nuestr
 serán validadas para confirmar si se nos da acceso al sistema 
 -->
 <!DOCTYPE html>
-<html>
-  <head lang="es">
-    <title>valdidev | DarkSlateBlue | Panel de control</title>
-    <meta charset="utf-8" />
-    <link rel="Stylesheet" href="estilo/login.css" />
-    <link rel="icon" href="logo.png" type="image/svg+xml" />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión</title>
+    
+    <link rel="stylesheet" href="estilo/login.css" />
   </head>
   <body>
     <main>
@@ -17,11 +18,17 @@ serán validadas para confirmar si se nos da acceso al sistema
         <img src="logo.png" id="logo" />
         <h1>Iniciar sesión</h1>
 
-        <input type="email" placeholder="Email" name="email" />
-        <input type="password" placeholder="Contraseña" name="contrasena" />
-        <input type="checkbox" />Recordar
+        <input type="email" placeholder="Email" name="email" required />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="contrasena"
+          required
+        />
+        <input type="checkbox" /> Recordar
         <a href="recordar.php">¿Has olvidado tu contraseña?</a>
         <input type="submit" value="Acceder" />
+        <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
       </form>
     </main>
   </body>
